@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="A survey analysis of coffee habits, spending and taste preferences by Arsalan Ahmed.">
+    <title>Coffee Consumer Insights | Arsalan Ahmed</title>
+    <style>
+    :root {
+      --paper:#fbfaf7;
+      --ink:#30251f;
+      --muted:#736a62;
+      --rule:#d6cfc4;
+      --accent:#a3442c
+    }
+    * {
+      box-sizing:border-box
+    }
+    html {
+      color-scheme:light
+    }
+    body {
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font:17px/1.75 "Segoe UI",Arial,sans-serif
+    }
+    header,main {
+      max-width:1180px;
+      margin:auto;
+      padding-left:58px;
+      padding-right:58px
+    }
+    header {
+      padding-top:32px
+    }
+    .topline {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      border-top:3px solid var(--ink);
+      padding-top:13px;
+      font:12px/1.5 "Courier New",monospace
+    }
+    .wordmark {
+      letter-spacing:.08em
+    }
+    .topline>span:last-child {
+      font-family:Georgia,serif;
+      font-style:italic;
+      font-size:17px
+    }
+    main {
+      padding-top:62px;
+      padding-bottom:35px
+    }
+    .intro {
+      padding:0 0 42px 174px;
+      border-bottom:1px solid var(--ink)
+    }
+    .eyebrow {
+      font:12px/1.5 "Courier New",monospace;
+      color:var(--accent);
+      letter-spacing:.035em;
+      margin:0 0 22px
+    }
+    h1 {
+      font:400 clamp(48px,6vw,76px)/1.04 Georgia,"Times New Roman",serif;
+      letter-spacing:-.045em;
+      max-width:760px;
+      margin:0 0 28px
+    }
+    h1 em {
+      font-weight:400;
+      color:var(--accent)
+    }
+    .lead {
+      max-width:610px;
+      color:#655950;
+      font-size:18px;
+      line-height:1.7;
+      margin:0
+    }
+    .summary {
+      display:grid;
+      grid-template-columns:136px 1fr;
+      gap:38px;
+      padding:26px 0 32px;
+      border-bottom:1px solid var(--rule)
+    }
+    .summary h2 {
+      font:13px/1.5 "Courier New",monospace;
+      margin-top:4px;
+      color:var(--accent)
+    }
+    .summary p {
+      margin:0;
+      max-width:790px;
+      font-size:18px;
+      line-height:1.75
+    }
+    p {
+      margin:0 0 19px
+    }
+    h2 {
+      font:400 31px/1.22 Georgia,"Times New Roman",serif;
+      letter-spacing:-.018em;
+      margin:0 0 24px
+    }
+    .finding {
+      position:relative;
+      padding:46px 0 40px 174px;
+      border-bottom:1px solid var(--rule)
+    }
+    .section-title>span {
+      position:absolute;
+      left:0;
+      top:46px;
+      font:400 52px/1 Georgia,serif;
+      color:#b1a192
+    }
+    .section-title h2 {
+      max-width:720px
+    }
+    .finding>p {
+      max-width:790px
+    }
+    .split {
+      display:grid;
+      grid-template-columns:1.05fr 1fr;
+      gap:40px
+    }
+    .finding-first .split {
+      grid-template-columns:1.1fr 1fr
+    }
+    .finding-first figure {
+      order:-1
+    }
+    .finding-first .split>div {
+      padding-top:35px
+    }
+    .base,.chart-note {
+      font:12px/1.65 "Courier New",monospace;
+      color:var(--muted);
+      margin:16px 0 0
+    }
+    .base {
+      max-width:800px
+    }
+    .finding>.base {
+      margin-bottom:24px
+    }
+    figure {
+      margin:0;
+      min-width:0
+    }
+    figcaption {
+      font:12px/1.5 "Courier New",monospace;
+      padding:10px 0 12px;
+      border-top:2px solid var(--ink);
+      margin-bottom:8px
+    }
+    .bar {
+      margin:17px 0
+    }
+    .bar-label {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      font-size:14px;
+      line-height:1.4
+    }
+    .bar-label strong {
+      font-family:"Courier New",monospace;
+      font-weight:400;
+      font-variant-numeric:tabular-nums
+    }
+    .track {
+      height:17px;
+      margin-top:7px;
+      background:repeating-linear-gradient(to right,transparent 0,transparent calc(25% - 1px),#ddd5cb calc(25% - 1px),#ddd5cb 25%);
+      border-left:1px solid #c9c0b4;
+      position:relative
+    }
+    .track span {
+      display:block;
+      height:100%;
+      background:#6d584b!important
+    }
+    .bar:last-child .track span {
+      background:#6d584b!important
+    }
+    .finding-first .bar:last-child .track span {
+      background:var(--accent)!important
+    }
+    .scale {
+      display:flex;
+      justify-content:space-between;
+      margin-top:5px;
+      font:11px/1.5 "Courier New",monospace;
+      color:var(--muted)
+    }
+    .table-scroll {
+      overflow:auto;
+      margin:30px 0 12px;
+      border-top:2px solid var(--ink)
+    }
+    table {
+      border-collapse:collapse;
+      width:100%;
+      font-size:14px;
+      line-height:1.5
+    }
+    th,td {
+      padding:15px 12px;
+      border-bottom:1px solid var(--rule);
+      text-align:right;
+      white-space:nowrap;
+      font-variant-numeric:tabular-nums
+    }
+    thead th {
+      font:11px/1.4 "Courier New",monospace;
+      font-weight:400;
+      color:var(--muted)
+    }
+    th:first-child,td:first-child {
+      text-align:left;
+      padding-left:0
+    }
+    tbody th {
+      font-weight:500
+    }
+    td {
+      font-family:"Courier New",monospace
+    }
+    th:last-child,td:last-child {
+      padding-right:0
+    }
+    .finding-roast td:last-child {
+      color:var(--accent);
+      font-weight:700
+    }
+    .finding-rating tbody tr:last-child {
+      background:#f0ece5
+    }
+    .finding-rating tbody tr:last-child th {
+      padding-left:8px
+    }
+    .next {
+      margin:45px 0 30px;
+      padding-left:174px;
+      position:relative
+    }
+    .next:before {
+      content:"";
+      position:absolute;
+      left:0;
+      top:7px;
+      width:70px;
+      border-top:3px solid var(--accent)
+    }
+    .next .eyebrow {
+      margin-bottom:13px
+    }
+    .next p {
+      max-width:790px
+    }
+    .about {
+      margin:38px 0 35px;
+      padding:28px 0 0 174px;
+      border-top:1px solid var(--rule)
+    }
+    .about h2 {
+      font:13px/1.5 "Courier New",monospace;
+      color:var(--accent);
+      margin-bottom:18px
+    }
+    .about p {
+      font-size:14px;
+      color:#685c51;
+      max-width:790px
+    }
+    footer {
+      border-top:3px solid var(--ink);
+      padding:18px 0 0 174px;
+      font:12px/1.7 "Courier New",monospace;
+      color:var(--muted)
+    }
+    footer p {
+      margin:0
+    }
+    a {
+      color:var(--ink);
+      text-decoration-thickness:1px;
+      text-underline-offset:3px
+    }
+    a:focus-visible {
+      outline:2px solid var(--accent);
+      outline-offset:4px
+    }
+    ::selection {
+      background:#ead9c4
+    }
+    @media(max-width:1000px) {
+      header,main {
+        padding-left:34px;
+        padding-right:34px
+      }
+      .intro,.finding,.next,.about,footer {
+        padding-left:100px
+      }
+      .summary {
+        grid-template-columns:72px 1fr;
+        gap:28px
+      }
+      .split,.finding-first .split {
+        grid-template-columns:1fr;
+        gap:28px
+      }
+      .finding-first .split>div {
+        padding-top:0
+      }
+      .finding-first figure {
+        order:0
+      }
+      .section-title>span {
+        font-size:42px
+      }
+      .next:before {
+        width:45px
+      }
+      figure {
+        max-width:640px
+      }
+    }
+    @media(max-width:600px) {
+      body {
+        font-size:16px;
+        line-height:1.7
+      }
+      header,main {
+        padding-left:22px;
+        padding-right:22px
+      }
+      header {
+        padding-top:22px
+      }
+      .topline {
+        font-size:10px;
+        gap:12px
+      }
+      .topline>span:last-child {
+        font-size:15px;
+        white-space:nowrap
+      }
+      main {
+        padding-top:38px
+      }
+      .intro {
+        padding:0 0 30px
+      }
+      h1 {
+        font-size:49px;
+        letter-spacing:-.045em;
+        line-height:1.06
+      }
+      .lead {
+        font-size:17px
+      }
+      .eyebrow {
+        font-size:11px
+      }
+      .summary {
+        display:block;
+        padding:24px 0
+      }
+      .summary h2 {
+        margin:0 0 12px
+      }
+      .summary p {
+        font-size:17px
+      }
+      .finding {
+        padding:32px 0
+      }
+      .section-title>span {
+        position:static;
+        display:block;
+        font-size:14px;
+        font-family:"Courier New",monospace;
+        margin-bottom:13px;
+        color:var(--accent)
+      }
+      h2 {
+        font-size:28px
+      }
+      .next {
+        padding:24px 0 0;
+        margin-top:24px;
+        border-top:2px solid var(--accent)
+      }
+      .next:before {
+        display:none
+      }
+      .about {
+        padding:24px 0 0;
+        margin-top:28px
+      }
+      footer {
+        padding:18px 0 0
+      }
+      .table-scroll {
+        max-width:100%
+      }
+      th,td {
+        padding:12px 10px
+      }
+      .base,.chart-note {
+        font-size:12px
+      }
+      .bar-label {
+        font-size:14px
+      }
+    }
+    @media print {
+      body {
+        background:white;
+        font-size:10.5pt
+      }
+      header,main {
+        max-width:none;
+        padding-left:0;
+        padding-right:0
+      }
+      header {
+        padding-top:0
+      }
+      main {
+        padding-top:25px
+      }
+      .intro,.finding,.next,.about,footer {
+        padding-left:0
+      }
+      .intro h1 {
+        font-size:36pt
+      }
+      .summary {
+        display:block
+      }
+      .summary h2 {
+        margin-bottom:8px
+      }
+      .section-title>span {
+        position:static;
+        display:inline-block;
+        font-size:12pt;
+        margin-bottom:10px
+      }
+      .finding {
+        padding-top:25px;
+        padding-bottom:20px
+      }
+      .split,.finding-first .split {
+        grid-template-columns:1fr 1fr;
+        gap:22px
+      }
+      h2 {
+        font-size:21pt;
+        break-after:avoid
+      }
+      figure,table {
+        break-inside:avoid
+      }
+      .table-scroll {
+        overflow:visible
+      }
+      .next:before {
+        display:none
+      }
+      th,td {
+        padding:9px 7px
+      }
+      .base,.chart-note,footer {
+        font-size:8pt
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="topline">
+        <span class="wordmark">COFFEE CONSUMER INSIGHTS</span><span>Arsalan Ahmed</span>
+      </div>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">Consumer research · 2023 survey data</p>
+          <h1>What do coffee<br><em>drinkers</em> prefer?</h1>
+          <p class="lead">A look at coffee habits, spending and taste preferences, based on 4,042 responses from the Great American Coffee Taste Test.</p>
+        </div>
+      </section>
+      <div class="summary">
+        <h2>The main finding</h2>
+        <p>Coffee D was the most popular choice, but preferences differed by group. It was much more popular among people who said they liked light roasts than among those who preferred dark roasts. A coffee brand could use this to plan which products to test with different customers.</p>
+      </div>
+      <section class="finding finding-first">
+        <div class="section-title">
+          <span>01</span>
+          <h2>Coffee D was the favourite, but most chose something else</h2>
+        </div>
+        <div class="split">
+          <div>
+            <p>Coffee D was the favourite for <strong>36.7%</strong> of respondents who answered the question. The other choices were close: A received 21.7%, C 20.8%, and B 20.8%.</p>
+            <p>D had the largest share, but it was not a majority choice. Looking at the overall result alone would miss differences between consumers.</p>
+            <p class="base">3,770 valid answers. 272 respondents did not answer.</p>
+          </div>
+          <figure>
+            <figcaption>Overall favourite</figcaption>
+            <div class="bars">
+              <div class="bar">
+                <div class="bar-label">
+                  <span>Coffee A</span><strong>21.7%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:21.69761%;background:#7b5540"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>Coffee B</span><strong>20.8%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:20.76923%;background:#7b5540"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>Coffee C</span><strong>20.8%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:20.79576%;background:#7b5540"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>Coffee D</span><strong>36.7%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:36.73740%;background:#285d49"></span>
+                </div>
+              </div>
+            </div>
+            <div class="scale" aria-hidden="true">
+              <span>0%</span><span>100%</span>
+            </div>
+            <p class="chart-note">Percentage of respondents who answered this question</p>
+          </figure>
+        </div>
+      </section>
+      <section class="finding finding-roast">
+        <div class="section-title">
+          <span>02</span>
+          <h2>People with different roast preferences chose different coffees</h2>
+        </div>
+        <p>Among respondents who preferred light roasts, <strong>53.5% chose Coffee D</strong>. This fell to 23.4% for medium-roast drinkers and 16.2% for dark-roast drinkers. Coffee B was the most common choice in the dark-roast group.</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Roast preference</th>
+                <th scope="col">Responses</th>
+                <th scope="col">Coffee A</th>
+                <th scope="col">Coffee B</th>
+                <th scope="col">Coffee C</th>
+                <th scope="col">Coffee D</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Light</th>
+                <td>1,700</td>
+                <td>25.6%</td>
+                <td>10.6%</td>
+                <td>10.3%</td>
+                <td>53.5%</td>
+              </tr>
+              <tr>
+                <th scope="row">Medium</th>
+                <td>1,485</td>
+                <td>19.1%</td>
+                <td>27.9%</td>
+                <td>29.5%</td>
+                <td>23.4%</td>
+              </tr>
+              <tr>
+                <th scope="row">Dark</th>
+                <td>390</td>
+                <td>11.5%</td>
+                <td>39.5%</td>
+                <td>32.8%</td>
+                <td>16.2%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="base">Percentages are within each group and may not total exactly 100% because of rounding. This comparison includes Light, Medium and Dark responses only.</p>
+        <p>A useful next step would be to test products with each group separately. The results do not tell us which coffee characteristic caused the difference: A–D identify different coffees, not controlled tests of roast level.</p>
+      </section>
+      <section class="finding finding-rating">
+        <div class="section-title">
+          <span>03</span>
+          <h2>Coffee D and Coffee A had similar average ratings</h2>
+        </div>
+        <p>Coffee D averaged <strong>3.38 out of 5</strong>, compared with <strong>3.31 for Coffee A</strong>. D received more high ratings, but it also received more low ratings than A. It was a stronger favourite for some respondents and less appealing to others.</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Coffee</th>
+                <th scope="col">Average rating / 5</th>
+                <th scope="col">Rated 4 or 5</th>
+                <th scope="col">Rated 1 or 2</th>
+                <th scope="col">Responses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Coffee A</th>
+                <td>3.31</td>
+                <td>49.3%</td>
+                <td>26.8%</td>
+                <td>3,789</td>
+              </tr>
+              <tr>
+                <th scope="row">Coffee B</th>
+                <td>3.07</td>
+                <td>35.5%</td>
+                <td>31.9%</td>
+                <td>3,773</td>
+              </tr>
+              <tr>
+                <th scope="row">Coffee C</th>
+                <td>3.06</td>
+                <td>36.2%</td>
+                <td>31.9%</td>
+                <td>3,766</td>
+              </tr>
+              <tr>
+                <th scope="row">Coffee D</th>
+                <td>3.38</td>
+                <td>54.5%</td>
+                <td>30.8%</td>
+                <td>3,764</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="base">Each average uses the available answers for that coffee. The number of responses differs slightly. Higher scores indicate greater preference.</p>
+        <p>This is why both questions matter: which coffee someone chooses as their favourite, and how much they like each coffee. The small difference in averages does not make D an obvious choice for everyone.</p>
+      </section>
+      <section class="finding finding-location">
+        <div class="section-title">
+          <span>04</span>
+          <h2>Most respondents drank coffee at home</h2>
+        </div>
+        <div class="split">
+          <div>
+            <p><strong>91.8%</strong> said they drank coffee at home. Respondents could choose more than one location, so someone might drink coffee both at home and at a cafe.</p>
+            <p>An at-home sample pack could be worth testing with a similar audience. These results alone do not show whether people would buy it.</p>
+            <p class="base">3,970 valid location answers. Two conflicting responses were excluded from this question.</p>
+          </div>
+          <figure>
+            <figcaption>Where respondents drank coffee</figcaption>
+            <div class="bars">
+              <div class="bar">
+                <div class="bar-label">
+                  <span>At home</span><strong>91.8%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:91.76322%;background:#285d49"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>At the office</span><strong>36.0%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:36.02015%;background:#285d49"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>At a cafe</span><strong>29.4%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:29.44584%;background:#285d49"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>On the go</span><strong>17.8%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:17.75819%;background:#285d49"></span>
+                </div>
+              </div>
+            </div>
+            <div class="scale" aria-hidden="true">
+              <span>0%</span><span>100%</span>
+            </div>
+            <p class="chart-note">Multiple answers allowed</p>
+          </figure>
+        </div>
+      </section>
+      <section class="finding finding-spending">
+        <div class="section-title">
+          <span>05</span>
+          <h2>Most reported monthly spending between $20 and $60</h2>
+        </div>
+        <div class="split">
+          <div>
+            <p><strong>66.7%</strong> selected either the $20–$40 or $40–$60 monthly spending bracket.</p>
+            <p>In a separate question, <strong>41.5%</strong> said they did not get good value when buying coffee at a cafe. It would be useful to ask what they bought, what they paid, and what would make it feel worth the price.</p>
+            <p>Monthly spending does not tell us the right price for one product. It gives some context for a more specific pricing study.</p>
+            <p class="base">Spending: 3,511 answers. Cafe value: 3,500 answers. Dollar brackets are shown as supplied in the survey, without conversion to Canadian dollars.</p>
+          </div>
+          <figure>
+            <figcaption>Monthly coffee spending</figcaption>
+            <div class="bars">
+              <div class="bar">
+                <div class="bar-label">
+                  <span>&lt;$20</span><strong>12.2%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:12.16178%;background:#7b5540"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>$20-$40</span><strong>36.8%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:36.82711%;background:#7b5540"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>$40-$60</span><strong>29.9%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:29.90601%;background:#7b5540"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>$60-$80</span><strong>11.0%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:11.02250%;background:#7b5540"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>$80-$100</span><strong>6.4%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:6.35147%;background:#7b5540"></span>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="bar-label">
+                  <span>&gt;$100</span><strong>3.7%</strong>
+                </div>
+                <div class="track">
+                  <span style="width:3.73113%;background:#7b5540"></span>
+                </div>
+              </div>
+            </div>
+            <div class="scale" aria-hidden="true">
+              <span>0%</span><span>100%</span>
+            </div>
+            <p class="chart-note">Percentage of respondents who answered this question</p>
+          </figure>
+        </div>
+      </section>
+      <section class="next">
+        <p class="eyebrow">What I would look at next</p>
+        <h2>A product test with different coffee drinkers</h2>
+        <p>I would recruit people with different roast preferences and ask them to try the same products under similar conditions. I would compare their ratings and favourite choices, then ask what they liked or disliked.</p>
+        <p>I would also test whether a sample pack appeals to people who drink coffee at home. For pricing, I would use a specific product and serving size rather than relying on general monthly spending.</p>
+        <p class="base">These are suggested next steps. No follow-up product or pricing study has been carried out.</p>
+      </section>
+      <section class="about">
+        <h2>About the analysis</h2>
+        <p>The analysis uses counts, percentages, average ratings and comparisons between groups. Missing answers are left out of each question’s calculation. The number of valid answers is shown with each result.</p>
+        <p>The original survey took place in October 2023. Participants volunteered for a tasting organised by James Hoffmann and Cometeer, so the results describe this sample. They should not be treated as a picture of all coffee drinkers or current Canadian preferences.</p>
+      </section>
+      <footer>
+        <p>Source: <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2024/2024-05-14">Great American Coffee Taste Test, via TidyTuesday</a>. Independent portfolio project. No affiliation with the survey organisers.</p>
+      </footer>
+    </main>
+  </body>
+</html>
