@@ -15,6 +15,32 @@
     <script src="theme.js"></script>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <style>
+      .project-image.coffee-cover {
+        display: grid;
+        place-items: center;
+        min-height: 190px;
+        padding: 16px;
+        background: #493126;
+        color: #fff1df;
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        font-weight: 650;
+        line-height: 1.1;
+        text-align: center;
+      }
+
+      @media (max-width: 760px) {
+        .project-image.coffee-cover {
+          min-height: 140px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .project-image.coffee-cover {
+          min-height: 170px;
+        }
+      }
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -46,7 +72,7 @@
         </section>
 
         <nav class="section-nav" aria-label="Portfolio sections">
-          <a href="#projects" data-view="projects">Projects <span class="count">06</span></a>
+          <a href="#projects" data-view="projects">Projects <span class="count">07</span></a>
           <a href="#writing" data-view="writing">Writing</a>
           <a href="#resume" data-view="resume">Résumé</a>
         </nav>
@@ -57,6 +83,22 @@
             <span class="muted small">From raw data to a clearer picture.</span>
           </div>
           <div class="featured-grid">
+            <article class="project-card">
+              <a class="project-image coffee-cover" href="reports/coffee_insights.html" aria-label="Read Coffee Consumer Insights report">
+                <span aria-hidden="true">What do coffee<br>drinkers prefer?</span>
+              </a>
+              <div class="card-body">
+                <div class="project-meta">
+                  <span>01 / CONSUMER INSIGHTS</span><span>CPG</span>
+                </div>
+                <h3><a href="reports/coffee_insights.html">Coffee Consumer Insights <span aria-hidden="true">↗</span></a></h3>
+                <p>Exploring what coffee drinkers preferred in a tasting survey and how those choices varied by roast preference.</p>
+                <details>
+                  <summary>About the project</summary>
+                  <p>The report looks at tasting preferences, where respondents drank coffee, and how much they reported spending each month.</p>
+                </details>
+              </div>
+            </article>
             <article class="project-card">
               <a
                 class="project-image"
@@ -72,7 +114,7 @@
               </a>
               <div class="card-body">
                 <div class="project-meta">
-                  <span>01 / BUSINESS INTELLIGENCE</span><span>Power BI</span>
+                  <span>02 / BUSINESS INTELLIGENCE</span><span>Power BI</span>
                 </div>
                 <h3><a href="https://arblaze.github.io/Power%20BI/financial_complaints.html">Financial Complaints Dashboard <span aria-hidden="true">↗</span></a></h3>
                 <p>Making customer complaint metrics easier to explore and use in service decisions.</p>
@@ -82,35 +124,18 @@
                 </details>
               </div>
             </article>
-            <article class="project-card">
-              <a
-                class="project-image"
-                href="https://arblaze.github.io/Power%20BI/sales_insight.html"
-                aria-label="Read Sales Insight Dashboard project"
-              >
-                <img
-                  src="assets/sales-insight.jpg"
-                  alt="Sale lettering on a shop window, the original sales insight project cover"
-                  width="740"
-                  height="434"
-                >
-              </a>
-              <div class="card-body">
-                <div class="project-meta">
-                  <span>02 / BUSINESS INTELLIGENCE</span><span>Power BI</span>
-                </div>
-                <h3><a href="https://arblaze.github.io/Power%20BI/sales_insight.html">Sales Insight Dashboard <span aria-hidden="true">↗</span></a></h3>
-                <p>Bringing sales performance into focus through an accessible dashboard.</p>
-                <details>
-                  <summary>About the project</summary>
-                  <p>A sales reporting project for the hypothetical company SVX. The dashboard organizes sales information into a visual overview for exploring performance.</p>
-                </details>
-              </div>
-            </article>
           </div>
-          <div class="project-list" aria-label="Python projects">
+          <div class="project-list" aria-label="More projects">
             <article class="project-row">
               <span class="project-number">03</span>
+              <div>
+                <h3><a href="https://arblaze.github.io/Power%20BI/sales_insight.html">Sales Insight Dashboard <span aria-hidden="true">↗</span></a></h3>
+                <p>Exploring sales performance in a Power BI dashboard.</p>
+              </div>
+              <span class="tag">Power BI</span>
+            </article>
+            <article class="project-row">
+              <span class="project-number">04</span>
               <div>
                 <h3><a href="https://arblaze.github.io/Python/IMDB.html">IMDb Sentiment Analysis <span aria-hidden="true">↗</span></a></h3>
                 <p>Classifying movie reviews as positive or negative.</p>
@@ -118,7 +143,7 @@
               <span class="tag">Python · NLP</span>
             </article>
             <article class="project-row">
-              <span class="project-number">04</span>
+              <span class="project-number">05</span>
               <div>
                 <h3><a href="https://arblaze.github.io/Python/Heart%20Attack%20EDA.html">Heart Disease Data Analysis <span aria-hidden="true">↗</span></a></h3>
                 <p>Exploring patterns and risk-related factors in a heart disease dataset.</p>
@@ -126,7 +151,7 @@
               <span class="tag">Python · EDA</span>
             </article>
             <article class="project-row">
-              <span class="project-number">05</span>
+              <span class="project-number">06</span>
               <div>
                 <h3><a href="https://arblaze.github.io/Python/Scraping.html">Disney Dataset Creation <span aria-hidden="true">↗</span></a></h3>
                 <p>Building a movie dataset from Wikipedia with BeautifulSoup.</p>
@@ -134,7 +159,7 @@
               <span class="tag">Python · Scraping</span>
             </article>
             <article class="project-row">
-              <span class="project-number">06</span>
+              <span class="project-number">07</span>
               <div>
                 <h3><a href="https://arblaze.github.io/Python/Student%20Performance.html">Student Performance Analysis <span aria-hidden="true">↗</span></a></h3>
                 <p>Exploring mathematics and Portuguese performance across two schools.</p>
